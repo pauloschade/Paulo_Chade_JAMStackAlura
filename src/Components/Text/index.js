@@ -61,6 +61,22 @@ ${({ theme }) => css`
   })}
 `;
 
+const projeto = css`
+${({ theme }) => css`
+    font-size: ${theme.typographyVariants.projetoXS.fontSize};
+    font-weight: ${theme.typographyVariants.projetoXS.fontWeight};
+  `}
+
+  ${breakpointsMedia({
+    md: css`
+        ${({ theme }) => css`
+          font-size: ${theme.typographyVariants.projeto.fontSize};
+          font-weight: ${theme.typographyVariants.projeto.fontWeight};
+        `}
+      `,
+  })}
+`;
+
 /* Consts ##################################################################### */
 
 export const TextStyleVariants = {
@@ -68,6 +84,7 @@ export const TextStyleVariants = {
   title,
   logo,
   nav,
+  projeto,
 };
 
 const TextBase = styled.span`
@@ -76,6 +93,7 @@ const TextBase = styled.span`
   ${propToStyle('textAlign')}
   ${propToStyle('margin')}
   ${propToStyle('marginRight')}
+  ${propToStyle('maxWidth')}
 `;
 
 export function Text({
@@ -104,5 +122,5 @@ Text.defaultProps = {
 Text.propTypes = {
   children: PropTypes.node.isRequired,
   tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'a', 'span']),
-  variant: PropTypes.oneOf(['title', 'subTitle', 'nav']),
+  variant: PropTypes.oneOf(['title', 'subTitle', 'nav', 'logo', 'projeto']),
 };

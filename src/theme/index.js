@@ -36,6 +36,16 @@ export const typographyVariants = {
     fontWeight: '400',
     lineHeight: '21.6px',
   },
+  projetoXS: {
+    fontSize: '24px',
+    fontWeight: '700',
+    lineHeight: '28.8px',
+  },
+  projeto: {
+    fontSize: '32px',
+    fontWeight: '700',
+    lineHeight: '38.4px',
+  },
 };
 
 export const colors = {

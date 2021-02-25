@@ -9,6 +9,9 @@ const CapaWrapper = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
+  background-size: cover;
+  background-position: center;
+  //background-image: url('https://i.pinimg.com/236x/5e/1c/4f/5e1c4fcc0bb0d412bedd45392a8c891e.jpg')
 `;
 
 const CapaTextWrapper = styled.div`
@@ -20,7 +23,7 @@ const CapaTextWrapper = styled.div`
     padding: 300px 51px 300px 51px; 
   `,
     md: css`
-    padding: 400px 416px 430px 416px; 
+    padding: 434px 416px 434px 416px; 
   `,
   })}
 `;
