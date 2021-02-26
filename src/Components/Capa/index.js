@@ -19,7 +19,6 @@ const CapaWrapper = styled.div`
     height: 434px; 
   `,
   })}
-  //background-image: url('https://i.pinimg.com/236x/5e/1c/4f/5e1c4fcc0bb0d412bedd45392a8c891e.jpg')
 `;
 
 const CapaTextWrapper = styled.div`
