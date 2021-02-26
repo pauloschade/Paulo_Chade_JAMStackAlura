@@ -17,7 +17,7 @@ export const typographyVariants = {
   logo: {
     fontSize: '38px',
     fontWeight: '400',
-    lineHeight: '45.6px'
+    lineHeight: '45.6px',
   },
   // [paragraph2]
   logoXS: {

@@ -11,7 +11,7 @@ const CabecalhoWrapper = styled.div`
   justify-content: space-around;
   background-color:  #FFF8E6;
   ${breakpointsMedia({
-    sm: css`
+    xs: css`
     height: 40px;
   `,
     md: css`
@@ -28,7 +28,7 @@ const Logo = styled.div`
   height:100%;
   background-color: #E9C46A;
   ${breakpointsMedia({
-    sm: css`
+    xs: css`
     width: 82.73px;
     
   `,
