@@ -25,6 +25,7 @@ const DestaqueWrapper = styled.div`
 `;
 
 const DestaqueImg = styled.div`
+  position: relative;
   display:flex;
   align-items:center;
   justify-content:space-around;
@@ -76,6 +77,15 @@ export default function CardDestaque({ order }) {
   return (
     <DestaqueWrapper order={order}>
       <DestaqueImg>
+        <Text
+          style={{
+            position: 'absolute', color: 'black', top: '0px', left: '0px', backgroundColor: 'white',
+          }}
+          border="2px solid white"
+          variant="nav"
+        >
+          Destaque
+        </Text>
         <img style={{ width: '100%', maxHeight: '100%' }} src="http://fitnessfranchiseblog.com/wp-content/uploads/2009/12/picture-112.png" alt="destaque" />
       </DestaqueImg>
       <DestaqueReport>
@@ -87,7 +97,7 @@ export default function CardDestaque({ order }) {
           Report
 
         </Text>
-        <Text ghost varinat="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie rhoncus vestibulum. Aenean blandit velit.</Text>
+        <Text ghost variant="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie rhoncus vestibulum. Aenean blandit velit.</Text>
       </DestaqueReport>
     </DestaqueWrapper>
   );

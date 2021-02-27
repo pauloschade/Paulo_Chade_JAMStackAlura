@@ -115,6 +115,7 @@ const TextBase = styled.span`
   ${propToStyle('margin')}
   ${propToStyle('marginRight')}
   ${propToStyle('maxWidth')}
+  ${propToStyle('border')}
 `;
 
 export function Text({

@@ -9,6 +9,7 @@ const CapaWrapper = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
+  background-image: url("https://cdn1.vectorstock.com/i/1000x1000/20/50/blue-abstract-background-with-geometric-shapes-vector-10202050.jpg");
   background-size: cover;
   background-position: center;
   ${breakpointsMedia({

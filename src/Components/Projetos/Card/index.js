@@ -19,13 +19,13 @@ const CardWrapper = styled.h3`
   width: '100%';
   display: flex;
   flex-direction:column;
+  border: 2px solid black;
   
   ${breakpointsMedia({
     xs: css`
     height: 249px;
     width: 290px;
     margin: 18px 0px 18px 0px;
-    border: 2px solid black;
   `,
     md: css`
     height: 510px;
@@ -59,16 +59,17 @@ const CardImgContainer = styled.div`
   height: 100%;
   display: flex;
   justify-content:space-around;
-  background-color: #2a6bcc;
   ${breakpointsMedia({
     xs: css`
     height: 177px;
     width: 288px;
     border-bottom: 1px solid black;
+    background-color: #2a6bcc;
   `,
     md: css`
     height: 390px;
     width: 287px;
+    background-color: white;
   `,
   })}
 
@@ -80,7 +81,7 @@ export default function ProjetosComponent({ order }) {
       {objCard.map((link) => (
         <CardWrapper key={link.url}>
           <CardImgContainer>
-            <img src={link.img} alt="projeto" style={{ maxWidth: '99%', height: 'auto' }} />
+            <img src={link.img} alt="projeto" style={{ maxWidth: '100%', height: 'auto' }} />
           </CardImgContainer>
           <CardTitle>
             <Text
