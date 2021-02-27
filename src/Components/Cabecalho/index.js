@@ -36,12 +36,9 @@ const Logo = styled.div`
     width: 136px;
   `,
   })}
-
-  
-  
 `;
 
-const Nav = styled.ol`
+const Nav = styled.ul`
   display: flex;
   justify-items: space-around;
   padding: 0;

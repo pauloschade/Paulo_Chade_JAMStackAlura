@@ -1,5 +1,6 @@
-/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 import { propToStyle } from '../../../theme/utils/propToStyle';
@@ -11,6 +12,7 @@ const ProjetoWrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  ${propToStyle('order')}
 `;
 
 const CardWrapper = styled.h3`
@@ -72,9 +74,9 @@ const CardImgContainer = styled.div`
 
 `;
 
-export default function ProjetosComponent() {
+export default function ProjetosComponent({ order }) {
   return (
-    <ProjetoWrapper>
+    <ProjetoWrapper order={order}>
       {objCard.map((link) => (
         <CardWrapper key={link.url}>
           <CardImgContainer>
@@ -92,6 +94,5 @@ export default function ProjetosComponent() {
         </CardWrapper>
       ))}
     </ProjetoWrapper>
-
   );
 }

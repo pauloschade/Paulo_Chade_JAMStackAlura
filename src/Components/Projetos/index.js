@@ -5,6 +5,7 @@ import { breakpointsMedia } from '../../theme/utils/breakpointsMedia';
 // import { propToStyle } from '../../theme/utils/propToStyle';
 import { Text } from '../Text';
 import ProjetosComponent from './Card';
+import CardDestaque from './CardDestaque';
 
 const WrapperProjetos = styled.div`
   width:100%;
@@ -12,6 +13,13 @@ const WrapperProjetos = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+`;
+
+const CardsWrapper = styled.div`
+  display:flex;
+  flex-direction:column;
+  justify-content: space-around;
 `;
 
 export default function Projetos() {
@@ -28,7 +36,8 @@ export default function Projetos() {
       >
         Projetos
       </Text>
-      <ProjetosComponent />
+      <ProjetosComponent order={{ xs: '3', md: '2' }} />
+      <CardDestaque order={{ xs: '2', md: '3' }} />
     </WrapperProjetos>
   );
 }

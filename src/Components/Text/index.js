@@ -77,6 +77,25 @@ ${({ theme }) => css`
   })}
 `;
 
+const description = css`
+${({ theme }) => css`
+    font-size: ${theme.typographyVariants.description.fontSize};
+    font-weight: ${theme.typographyVariants.description.fontWeight};
+  `}
+`;
+
+const TextGhost = css`
+  ${breakpointsMedia({
+    xs: css`
+    display:none
+  `,
+    md: css`
+    display: block;
+    font-size: 18px;
+  `,
+  })}
+`;
+
 /* Consts ##################################################################### */
 
 export const TextStyleVariants = {
@@ -85,11 +104,13 @@ export const TextStyleVariants = {
   logo,
   nav,
   projeto,
+  description,
 };
 
 const TextBase = styled.span`
   ${({ variant }) => TextStyleVariants[variant]}
   color: ${({ theme, color }) => get(theme, `colors.${color}.color`)};
+  ${({ ghost }) => (ghost && TextGhost)}
   ${propToStyle('textAlign')}
   ${propToStyle('margin')}
   ${propToStyle('marginRight')}
@@ -122,5 +143,5 @@ Text.defaultProps = {
 Text.propTypes = {
   children: PropTypes.node.isRequired,
   tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'a', 'span']),
-  variant: PropTypes.oneOf(['title', 'subTitle', 'nav', 'logo', 'projeto']),
+  variant: PropTypes.oneOf(['title', 'subTitle', 'nav', 'logo', 'projeto', 'description']),
 };
