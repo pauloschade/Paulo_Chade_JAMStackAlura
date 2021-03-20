@@ -59,7 +59,8 @@ const Nav = styled.ul`
   }
 `;
 
-export default function Cabecalho() {
+// eslint-disable-next-line react/prop-types
+export default function Cabecalho({ setOpen }) {
   return (
     <CabecalhoWrapper>
       <Logo>
@@ -77,14 +78,14 @@ export default function Cabecalho() {
       </Logo>
       <Nav>
         {[
-          { url: '/sobreMim', name: 'Sobre Mim' },
-          { url: '/contato', name: 'Contato' },
+          { url: '/sobreMim', name: 'Sobre Mim', func: {} },
+          { url: {}, name: 'Contato', func: { setOpen } },
         ].map((link) => (
           <li key={link.url}>
             <Text
               variant="nav"
               tag="a"
-              href={link.url}
+              onClick={setOpen}
               margin={{
                 xs: '0 32px 0 0',
                 md: '0 38px 0 0',

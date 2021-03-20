@@ -143,6 +143,6 @@ Text.defaultProps = {
 
 Text.propTypes = {
   children: PropTypes.node.isRequired,
-  tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'a', 'span']),
+  tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'a', 'span', 'button']),
   variant: PropTypes.oneOf(['title', 'subTitle', 'nav', 'logo', 'projeto', 'description']),
 };
