@@ -31,7 +31,7 @@ const InputBig = styled.input`
 const Button = styled.button`
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
   border-radius: 3px;
   padding: 5px;
   width: 11rem;
