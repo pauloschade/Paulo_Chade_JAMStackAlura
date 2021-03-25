@@ -13,6 +13,12 @@ export default function Home() {
   return (
     <div>
       <Capa />
+      <Cabecalho setOpen={() => {
+        setModalState(true);
+      }}
+      />
+      <Projetos />
+      <Footer />
       <Modal
         isOpen={isModalOpen}
         onClose={() => {
@@ -20,15 +26,11 @@ export default function Home() {
         }}
       >
         {(propsDoModal) => (
-          <FormCadastro propsDoModal={propsDoModal} />
+          <FormCadastro
+            propsDoModal={propsDoModal}
+          />
         )}
       </Modal>
-      <Cabecalho setOpen={() => {
-        setModalState(true);
-      }}
-      />
-      <Projetos />
-      <Footer />
     </div>
 
   );

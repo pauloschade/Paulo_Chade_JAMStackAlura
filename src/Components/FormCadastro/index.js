@@ -1,6 +1,61 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import Lottie from 'react-lottie';
+import styled, { css } from 'styled-components';
 import { Text } from '../Text';
+import { breakpointsMedia } from '../../theme/utils/breakpointsMedia';
+import successAnimation from './anim/sus.json';
+import errorAnimation from './anim/error.json';
+
+const Input = styled.input`
+  border : 1px solid #E4C068;
+  height: 45px ;
+  width:100%;
+  padding: 5px;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-content: center;
+`;
+
+const InputBig = styled.input`
+  border : 1px solid #E4C068;
+  height: 130px ;
+  width:100%;
+  padding: 5px;
+`;
+
+const Button = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  padding: 5px;
+  width: 11rem;
+  background: #E4C068;
+  color: white;
+  border: 2px solid white;
+`;
+
+const Form = styled.form`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #FFFFFF;
+  padding: 20px;
+  ${breakpointsMedia({
+    xs: css`
+    width: 350px;
+  `,
+    md: css`
+    width: 900px;
+  `,
+  })}
+`;
 
 const formStates = {
   DEFAULT: 'DEFAULT',
@@ -14,8 +69,9 @@ function FormContent() {
   const [submissionStatus, setSubmissionStatus] = React.useState(formStates.DEFAULT);
 
   const [userInfo, setUserInfo] = React.useState({
-    usuario: 'omariosouto1002',
-    nome: 'Mario Souto',
+    email: 'seu email',
+    nome: 'seu nome',
+    message: 'mensagem...',
   });
 
   function handleChange(event) {
@@ -26,10 +82,11 @@ function FormContent() {
     });
   }
 
-  const isFormInvalid = userInfo.usuario.length === 0 || userInfo.nome.length === 0;
+  // eslint-disable-next-line max-len
+  const isFormInvalid = userInfo.email.length === 0 || userInfo.nome.length === 0 || userInfo.message.length === 0;
 
   return (
-    <form
+    <Form
       onSubmit={(event) => {
         event.preventDefault();
 
@@ -37,11 +94,12 @@ function FormContent() {
 
         // Data Transfer Object
         const userDTO = {
-          username: userInfo.usuario,
+          email: userInfo.email,
           name: userInfo.nome,
+          message: userInfo.message,
         };
 
-        fetch('https://instalura-api.vercel.app/api/users', {
+        fetch('https://contact-form-api-jamstack.herokuapp.com/message', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -53,7 +111,7 @@ function FormContent() {
               return respostaDoServidor.json();
             }
 
-            throw new Error('Não foi possível cadastrar o usuário agora :(');
+            throw new Error('Não foi possível enviar a mensagem');
           })
           .then((respostaConvertidaEmObjeto) => {
             setSubmissionStatus(formStates.DONE);
@@ -67,26 +125,8 @@ function FormContent() {
           });
       }}
     >
-
-      <Text
-        variant="title"
-        tag="h1"
-        color="tertiary.main"
-      >
-        Pronto para saber da vida dos outros?
-      </Text>
-      <Text
-        variant="paragraph1"
-        tag="p"
-        color="tertiary.light"
-        marginBottom="32px"
-      >
-        Você está a um passo de saber tudoo que está
-        rolando no bairro, complete seu cadastro agora!
-      </Text>
-
       <div>
-        <input
+        <Input
           placeholder="Nome"
           name="nome"
           value={userInfo.nome}
@@ -95,56 +135,58 @@ function FormContent() {
       </div>
 
       <div>
-        <input
-          placeholder="Usuário"
-          name="usuario"
-          value={userInfo.usuario}
+        <Input
+          placeholder="Email"
+          name="email"
+          value={userInfo.email}
           onChange={handleChange}
         />
       </div>
 
-      <Text
-        variant="primary.main"
-        type="submit"
-        disabled={isFormInvalid}
-        fullWidth
-      >
-        Cadastrar
-      </Text>
+      <div>
+        <InputBig
+          placeholder="Mensagem..."
+          name="message"
+          value={userInfo.message}
+          onChange={handleChange}
+        />
+      </div>
 
-      {isFormSubmited && submissionStatus === formStates.DONE && (
-        <div>
-          <Lottie
-            width="150px"
-            height="150px"
-            // config={{ animationData: , loop: false, autoplay: true }}
-          />
-          {/* https://lottiefiles.com/43920-success-alert-icon */}
-        </div>
-      )}
-
-      {isFormSubmited && submissionStatus === formStates.ERROR && (
-        <div
-          display="flex"
-          justifyContent="center"
+      <Container>
+        <Button
+          disabled={isFormInvalid}
         >
-          <Lottie
-            width="150px"
-            height="150px"
-            // sconfig={{ animationData:, loop: false, autoplay: true }}
-          />
-          {/* https://lottiefiles.com/43920-success-alert-icon */}
-        </div>
-      )}
-    </form>
+          <Text maxWidth="50%" variant="description">
+            enviar
+          </Text>
+        </Button>
+
+        {isFormSubmited && submissionStatus === formStates.DONE && (
+        <Lottie
+          width="70px"
+          height="70px"
+          options={{ animationData: successAnimation, loop: false }}
+        />
+        )}
+
+        {isFormSubmited && submissionStatus === formStates.ERROR && (
+        <Lottie
+          width="70px"
+          height="70px"
+          options={{ animationData: errorAnimation, loop: false }}
+        />
+        )}
+      </Container>
+    </Form>
   );
 }
 
 // eslint-disable-next-line react/prop-types
 export default function FormCadastro({ propsDoModal }) {
   return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
     <div {...propsDoModal}>
-      <FormContent />
+      <FormContent ghost />
     </div>
   );
 }
