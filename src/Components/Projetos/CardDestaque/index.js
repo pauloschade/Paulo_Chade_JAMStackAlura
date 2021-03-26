@@ -5,15 +5,31 @@ import React from 'react';
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 import { propToStyle } from '../../../theme/utils/propToStyle';
 import { Text } from '../../Text';
+/* src="http://fitnessfranchiseblog.com/wp-content/uploads/2009/12/picture-112.png" alt="destaque" */
+
+const DestaqueBackground = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #03017C;
+  border-radius: 10px;
+  width: 90%;
+  height: 40%;
+  ${propToStyle('order')}
+
+`;
 
 const DestaqueWrapper = styled.div`
   display: flex;
+  border: 5px solid black;
+  border-radius:2rem;
+  background-color: #C85502;
+
   ${breakpointsMedia({
     xs: css`
     flex-direction: column;
     height: 249px;
     width: 290px;
-    border: 2px solid black;
   `,
     md: css`
     flex-direction:row;
@@ -29,16 +45,8 @@ const DestaqueImg = styled.div`
   display:flex;
   align-items:center;
   justify-content:space-around;
-  ${breakpointsMedia({
-    xs: css`
-    height: 177px;
-    width: 100%;
-  `,
-    md: css`
-    height: 100%;
-    width: 593px;
-  `,
-  })}
+  height: 100%;
+  width: 100%;
 `;
 
 const DestaqueReport = styled.div`
@@ -55,8 +63,8 @@ const DestaqueReport = styled.div`
     flex-direction:column;
     height: 100%;
     align-items:flex-start;
-    width:306px;
-    margin-left: 30px;
+    width:40%;
+    margin-left: 2rem;
   `,
   })}
   a {
@@ -75,30 +83,32 @@ const DestaqueReport = styled.div`
 
 export default function CardDestaque({ order }) {
   return (
-    <DestaqueWrapper order={order}>
-      <DestaqueImg>
-        <Text
-          style={{
-            position: 'absolute', color: 'black', top: '0px', left: '0px', backgroundColor: 'white',
-          }}
-          border="2px solid white"
-          variant="nav"
-        >
-          Destaque
-        </Text>
-        <img style={{ width: '100%', maxHeight: '100%' }} src="http://fitnessfranchiseblog.com/wp-content/uploads/2009/12/picture-112.png" alt="destaque" />
-      </DestaqueImg>
-      <DestaqueReport>
-        <Text
-          variant="projeto"
-          tag="a"
-          margin={{ md: '-100px 0 50px 0', xs: '0' }}
-        >
-          Report
+    <DestaqueBackground order={order}>
+      <DestaqueWrapper >
+        <DestaqueImg>
+          <Text
+            style={{
+              position: 'absolute', color: 'black', top: '1rem', left: '1rem', backgroundColor: 'white',
+            }}
+            border="2px solid white"
+            variant="nav"
+          >
+            Destaque
+          </Text>
+          <img style={{ width: '100%', maxHeight: '100%' }} />
+        </DestaqueImg>
+        <DestaqueReport>
+          <Text
+            variant="projeto"
+            tag="a"
+            margin={{ md: '-100px 0 50px 0', xs: '0' }}
+          >
+            Report
 
-        </Text>
-        <Text ghost variant="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie rhoncus vestibulum. Aenean blandit velit.</Text>
-      </DestaqueReport>
-    </DestaqueWrapper>
+          </Text>
+          <Text ghost variant="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie rhoncus vestibulum. Aenean blandit velit.</Text>
+        </DestaqueReport>
+      </DestaqueWrapper>
+    </DestaqueBackground>
   );
 }

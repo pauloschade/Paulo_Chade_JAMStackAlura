@@ -11,26 +11,33 @@ const ProjetoWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 10px;
   flex-wrap: wrap;
   ${propToStyle('order')}
+  background-color: #808080;
+  height: 50%;
+  width: 95%;
 `;
 
 const CardWrapper = styled.h3`
   width: '100%';
   display: flex;
   flex-direction:column;
-  border: 2px solid black;
+  border: 5px solid black;
+  border-radius:2rem;
+  padding:2px;
+  background-color:#C85502;
   
   ${breakpointsMedia({
     xs: css`
     height: 249px;
-    width: 290px;
+    width: 240px;
     margin: 18px 0px 18px 0px;
   `,
     md: css`
-    height: 510px;
+    height: 450px;
     width: 288px;
-    margin: 0px 18px 0px 18px;
+    margin: 40px 40px 40px 18px;
   `,
   })}
 `;
@@ -61,15 +68,12 @@ const CardImgContainer = styled.div`
   justify-content:space-around;
   ${breakpointsMedia({
     xs: css`
-    height: 177px;
-    width: 288px;
-    border-bottom: 1px solid black;
-    background-color: #2a6bcc;
+    height: 100%;
+    width: 100%;
   `,
     md: css`
-    height: 390px;
-    width: 287px;
-    background-color: white;
+    height: 100%;
+    width: 100%;
   `,
   })}
 
@@ -81,7 +85,7 @@ export default function ProjetosComponent({ order }) {
       {objCard.map((link) => (
         <CardWrapper key={link.url}>
           <CardImgContainer>
-            <img src={link.img} alt="projeto" style={{ maxWidth: '100%', height: 'auto' }} />
+          {/*<img alt="projeto" style={{ maxWidth: '100%', height: 'auto' }} /> -->*/}
           </CardImgContainer>
           <CardTitle>
             <Text
