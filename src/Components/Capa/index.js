@@ -3,21 +3,21 @@ import styled, { css } from 'styled-components';
 import { breakpointsMedia } from '../../theme/utils/breakpointsMedia';
 // import { propToStyle } from '../../theme/utils/propToStyle';
 import { Text } from '../Text';
+import Cabecalho from '../Cabecalho';
 
 const CapaWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  align-items: center;
-  background-image: url("https://cdn1.vectorstock.com/i/1000x1000/20/50/blue-abstract-background-with-geometric-shapes-vector-10202050.jpg");
   background-size: cover;
   background-position: center;
+  background-color: #202020;
   ${breakpointsMedia({
     sm: css`
     height: 300px; 
   `,
     md: css`
-    height: 434px; 
+    height: 40%; 
   `,
   })}
 `;
@@ -29,9 +29,10 @@ const CapaTextWrapper = styled.div`
 
 `;
 
-export default function Capa() {
+export default function Capa({ setOpen }) {
   return (
     <CapaWrapper>
+      <Cabecalho setOpen={setOpen} />
       <CapaTextWrapper>
         <Text
           variant="title"
@@ -41,11 +42,11 @@ export default function Capa() {
           Paulo Chade
         </Text>
         <Text
-          variant="subTitle"
+          variant="nav"
           tag="h1"
           color="tertiary.main"
         >
-          Portfólio
+          Portfolio
         </Text>
       </CapaTextWrapper>
     </CapaWrapper>

@@ -10,11 +10,13 @@ const CabecalhoWrapper = styled.div`
   align-items: center;
   justify-content: space-around;
   background-color:  #FFF8E6;
+  border-radius: 1rem;
   ${breakpointsMedia({
     xs: css`
     height: 40px;
   `,
     md: css`
+    right: 0rem ;
     height: 67px;
   `,
   })}
@@ -26,7 +28,6 @@ const Logo = styled.div`
   flex-direction:column;
   align-items: center;
   height:100%;
-  background-color: #E9C46A;
   ${breakpointsMedia({
     xs: css`
     width: 82.73px;
@@ -48,12 +49,12 @@ const Nav = styled.ul`
     text-align: center;
     display: block;
     text-decoration: none;
-    color: #88989E;
+    color: #3F3F3F;
     transition: 200ms ease-in-out;
     &:hover,
     &:focus {
       font-weight: 500;
-      color: #070C0E;
+      color: #FFDF6C;
       
     }
   }
