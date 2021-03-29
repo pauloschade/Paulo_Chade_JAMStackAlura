@@ -59,7 +59,7 @@ export const colors = {
       color: '#FFFFFF',
     },
     main: {
-      color: '#F2F2F2',
+      color: '#202020',
     },
   },
   borders: {
@@ -81,7 +81,7 @@ export const colors = {
   },
   tertiary: {
     main: {
-      color: '#070C0E',
+      color: '#FFFFFF',
       contrastText: '#fff',
     },
     light: {

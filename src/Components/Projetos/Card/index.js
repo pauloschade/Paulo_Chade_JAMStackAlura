@@ -13,10 +13,17 @@ const ProjetoWrapper = styled.div`
   justify-content: center;
   border-radius: 10px;
   flex-wrap: wrap;
+  background-color:#3F3F3F;
   ${propToStyle('order')}
-  background-color: #808080;
-  height: 50%;
   width: 95%;
+  ${breakpointsMedia({
+    xs: css`
+    height: 65%;
+  `,
+    md: css`
+    height: 45%;
+  `,
+  })}
 `;
 
 const CardWrapper = styled.h3`
@@ -26,7 +33,7 @@ const CardWrapper = styled.h3`
   border: 5px solid black;
   border-radius:2rem;
   padding:2px;
-  background-color:#C85502;
+  background-color:#FFFFFF;
   
   ${breakpointsMedia({
     xs: css`

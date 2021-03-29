@@ -12,8 +12,7 @@ export default function Home() {
 
   return (
     <div>
-      <Capa />
-      <Cabecalho setOpen={() => {
+      <Capa setOpen={() => {
         setModalState(true);
       }}
       />

@@ -11,11 +11,18 @@ const DestaqueBackground = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #03017C;
+  background-color: #FFDF6C;
   border-radius: 10px;
   width: 90%;
-  height: 40%;
   ${propToStyle('order')}
+  ${breakpointsMedia({
+    xs: css`
+    height: 20%;
+  `,
+    md: css`
+    height: 30%;
+  `,
+  })}
 
 `;
 
@@ -23,7 +30,7 @@ const DestaqueWrapper = styled.div`
   display: flex;
   border: 5px solid black;
   border-radius:2rem;
-  background-color: #C85502;
+  background-color: #FFFFFF;
 
   ${breakpointsMedia({
     xs: css`
@@ -84,7 +91,7 @@ const DestaqueReport = styled.div`
 export default function CardDestaque({ order }) {
   return (
     <DestaqueBackground order={order}>
-      <DestaqueWrapper >
+      <DestaqueWrapper>
         <DestaqueImg>
           <Text
             style={{
