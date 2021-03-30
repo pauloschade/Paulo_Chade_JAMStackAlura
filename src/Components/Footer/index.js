@@ -10,7 +10,7 @@ const FooterWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content:center;
-  background-color:  #FFF8E6;
+  background-color: #202020;
   height: 68px;
 `;
 
@@ -19,7 +19,7 @@ const NavF = styled.div`
   align-items: center;
   justify-content: space-around;
   height:100%;
-  background-color: #E9C46A;
+  background-color: #FFFFFF;
   list-style-type: none;
   width:224px;
 `;

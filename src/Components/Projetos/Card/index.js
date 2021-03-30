@@ -13,7 +13,7 @@ const ProjetoWrapper = styled.div`
   justify-content: center;
   border-radius: 10px;
   flex-wrap: wrap;
-  background-color:#3F3F3F;
+  background-color:#202020;
   ${propToStyle('order')}
   width: 95%;
   ${breakpointsMedia({
