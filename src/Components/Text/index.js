@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { propToStyle } from '../../theme/utils/propToStyle';
 import { breakpointsMedia } from '../../theme/utils/breakpointsMedia';
+import { Link } from '../Link';
 
 /* Consts ##################################################################### */
 
@@ -119,30 +120,45 @@ const TextBase = styled.span`
 `;
 
 export function Text({
-  variant,
-  children,
-  tag,
-  ...props
+  tag, variant, href, children, ...props
 }) {
+  if (href) {
+    return (
+      <TextBase
+        as={Link}
+        variant={variant}
+        href={href}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+        {...props}
+      >
+        {children}
+      </TextBase>
+    );
+  }
   return (
     <TextBase
       as={tag}
       variant={variant}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
+      // style
+      // className
+      // e ai vai
     >
       {children}
     </TextBase>
   );
 }
-
 Text.defaultProps = {
   tag: 'span',
   variant: 'subTitle',
+  children: null,
+  href: '',
 };
 
 Text.propTypes = {
-  children: PropTypes.node.isRequired,
   tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'a', 'span', 'button']),
   variant: PropTypes.oneOf(['title', 'subTitle', 'nav', 'logo', 'projeto', 'description']),
+  children: PropTypes.node,
+  href: PropTypes.string,
 };

@@ -3,6 +3,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { breakpointsMedia } from '../../theme/utils/breakpointsMedia';
 // import { propToStyle } from '../../theme/utils/propToStyle';
+// eslint-disable-next-line import/named
 import { Text } from '../Text';
 
 const CabecalhoWrapper = styled.div`
